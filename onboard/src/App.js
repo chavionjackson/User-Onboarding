@@ -22,7 +22,14 @@ const initialFormErrors = {
   terms: ''
 }
 //Initial state for current person
-const initialPerson = []
+const initialPerson = [
+  {
+    name: 'Chevy Jackson',
+    email: 'chavionjackson@yahoo.com',
+    password: 'Cha2167993!',
+    terms: true
+  }
+]
 
 //Initial state for submit
 const initialDisabled = true
@@ -36,9 +43,15 @@ function App() {
   //SEND DATA TO SERVER
   const postNewPerson = newPerson => {
     axios.post(`https://reqres.in/api/users`, newPerson)
-    .then(({data}) => setPerson(data, ...person))
-    .catch(err => console.log('Error!', err))
-    console.log(person)
+      .then(res => {
+        setPerson([...person, res.data])
+      })
+      .catch(err => {
+        console.log(err)
+      })
+      .finally(() => {
+        setFormValues(initialFormValues)
+      })
   }
   console.log(person)
 

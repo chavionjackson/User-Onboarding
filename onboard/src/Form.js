@@ -70,7 +70,7 @@ const Form = (props) => {
             />
         <br/>
         <br/>
-            <button disabled={disabled} id='submitBtn'>Submit</button>
+            <button disabled={disabled}>Submit</button>
 
         </div>
       </form>
