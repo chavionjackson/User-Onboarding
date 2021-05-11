@@ -22,14 +22,7 @@ const initialFormErrors = {
   terms: ''
 }
 //Initial state for current person
-const initialPerson = [
-  {
-    name: 'Chevy Jackson',
-    email: 'chavionjackson@yahoo.com',
-    password: 'Cha2167993!',
-    terms: true
-  }
-]
+const initialPerson = []
 
 //Initial state for submit
 const initialDisabled = true
@@ -53,9 +46,6 @@ function App() {
         setFormValues(initialFormValues)
       })
   }
-  console.log(person)
-
-
   //EVENT HANDLERS
   //Validation
   const inputChange = (name, value) => {
@@ -80,7 +70,6 @@ function App() {
       name: formValues.name.trim(),
       email: formValues.email.trim(),
       password: formValues.password.trim(),
-      terms: formValues.terms
     }
     //POST NEW FRIEND
     postNewPerson(newPerson)
@@ -88,6 +77,7 @@ function App() {
 }
   //SIDE EFFECTS
   useEffect(() => {
+    console.log(formValues)
     schema.isValid(formValues)
     .then(valid => setDisabled(!valid))
   }, [formValues])
