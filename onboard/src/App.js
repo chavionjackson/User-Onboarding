@@ -22,14 +22,21 @@ const initialFormErrors = {
   terms: ''
 }
 //Initial state for current person
-const initialPerson = []
+const initialPerson = [
+  {
+    name: 'Chevy Jackson',
+    email: 'chavionjackson@yahoo',
+    password: 'topsecret',
+    terms: 'true'
+  },
+]
 
 //Initial state for submit
 const initialDisabled = true
 
 function App() {
   //SET VARIABLES TO CORRESPONDING STATE
-  const [person, setPerson] = useState(initialPerson) //Array of people
+  const [person, setPerson] = useState(initialPerson) //Array of person
   const [formValues, setFormValues] = useState(initialFormValues) //Object
   const [formErrors, setFormErrors] = useState(initialFormErrors) //Object
   const [disabled, setDisabled] = useState(initialDisabled) // boolean
